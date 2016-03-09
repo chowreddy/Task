@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<time>Home Page</time>
+	</head>
+	<body bgcolor="#99FFFF">
+		<h1 align="center">User Stories</h1>
+		<table align="center" border="1">
+			<tr><th>Title</th><th>Link</th></tr>
+			{% for story in stories %}
+				<tr>
+					<th><a href="/{{story.id}}/">{{story.title}}</a></th>
+					<th><a href="/{{story.id}}">{{story.link}}</a></th>
+				</tr>
+			{% endfor %}
+			<form action="/add_story_form/" method="post">
+				{%csrf_token%}
+				<button name="ADD" value="Add User">ADD USER</button>
+			</form>
+		</table>
+	</body>
+</html>
